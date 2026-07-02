@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TodoItem from './TodoItem'
 import style from "./TodoItems.module.css"
-const TodoItems = ({todoItems,onDeleteClick}) => {
+import { TodoItemsContext } from './store/TodoItemsStore'
+const TodoItems = ({onDeleteClick}) => {
+const todoItems = useContext(TodoItemsContext)
 
   return (
     <>
