@@ -11,10 +11,17 @@ const App = () => {
   ];
   const [todoItems, setTodoItems] = useState(initialTodoItems)
   const handleNewItem=(itemName,itemDueDate)=>{
-console.log(itemDueDate,itemName)
 const newTodoItems=[...todoItems,{name:itemName,dueDate:itemDueDate},
 ]
 setTodoItems(newTodoItems)
+  }
+
+  function handleDeleteItem(todoItemName){
+
+    const newTodoItems=todoItems.filter(item=>item.name!==todoItemName)
+
+    setTodoItems(newTodoItems)
+
   }
   return (
     <center className="todo-Container">
@@ -25,7 +32,7 @@ setTodoItems(newTodoItems)
         todoItems.length==0 && <WelcomeMessage/>
       }
      
-      <TodoItems todoItems={todoItems} />
+      <TodoItems todoItems={todoItems} onDeleteClick={handleDeleteItem}/>
     </center>
   );
 };
