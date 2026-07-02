@@ -1,8 +1,7 @@
 import React from "react";
 import AppName from "./component/AppName";
 import AddTodo from "./component/AddTodo";
-import TodoItem1 from "./component/TodoItem1";
-import TodoItem2 from "./component/TodoItem2";
+import TodoItem from "./component/TodoItem";
 
 const App = () => {
   return (
@@ -11,9 +10,8 @@ const App = () => {
 
       <AddTodo />
       <div className="items-container">
-
-     <TodoItem1/>
-     <TodoItem2/>
+        <TodoItem todoName="Buy milk" todoDate="4/10/2026" />
+        <TodoItem todoName="Go to College" todoDate="4/10/2026" />
       </div>
     </center>
   );
