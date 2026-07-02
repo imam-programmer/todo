@@ -1,10 +1,8 @@
 import React from 'react'
 import style from "./WelcomeMessage.module.css"
-const WelcomeMessage = () => {
-  return (
-    <div>
-        <p className={style.welcome}>Enjoy your day</p>
-    </div>
+const WelcomeMessage = ({todoItems}) => {
+  return (todoItems.length==0 && <p className={style.welcome}>Enjoy your day</p>
+
   )
 }
 
