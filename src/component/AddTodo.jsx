@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IoAddCircleOutline } from "react-icons/io5";
 
 const AddTodo = ({onNewItem}) => {
 const [todoName, setTodoName] = useState("")
@@ -16,7 +17,7 @@ setTodoName("")
 }
   return (
     <div className='container'>
-        <div className="row justify-content-between kg-row">
+        <div className="row justify-content-between kg-row  align-items-center">
     <div className="col-4">
       <input  value={todoName} type="text" placeholder='add task...' onChange={handleNameChange} />
     </div>
@@ -25,9 +26,10 @@ setTodoName("")
     </div>
     <div className="col-2">
       <button type="button" className="btn btn-info kg-button"
-      onClick={handleAddButtonClicked}>Add</button>
+      onClick={handleAddButtonClicked}><IoAddCircleOutline size={25}/></button>
     </div>
-  </div></div>
+  </div>
+  </div>
   )
 }
 
