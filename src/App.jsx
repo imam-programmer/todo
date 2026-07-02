@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import AppName from "./component/AppName";
 import AddTodo from "./component/AddTodo";
 
@@ -7,8 +7,9 @@ import WelcomeMessage from "./component/WelcomeMessage";
 import { TodoItemsContext } from "./component/store/TodoItemsStore";
 
 const App = () => {
-  const initialTodoItems = [];
-  const [todoItems, setTodoItems] = useState(initialTodoItems);
+
+  const [todoItems, setTodoItems] = useState([]);
+  const [newTodoItems, dispatchTodoItems] = useReducer()
   const addNewItem = (itemName, itemDueDate) => {
     const newTodoItems = [
       ...todoItems,
