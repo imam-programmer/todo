@@ -23,15 +23,21 @@ const App = () => {
     setTodoItems(newTodoItems);
   }
   return (
-    <TodoItemsContext.Provider value={{items:todoItems,addNewItem:addNewItem,deleteItem:deleteItem}}>
-    <center className="todo-Container">
-      <AppName />
+    <TodoItemsContext.Provider
+      value={{
+        todoItems,
+        addNewItem,
+        deleteItem,
+      }}
+    >
+      <center className="todo-Container">
+        <AppName />
 
-      <AddTodo onNewItem={addNewItem} />
-     <WelcomeMessage/>
+        <AddTodo />
+        <WelcomeMessage />
 
-      <TodoItems onDeleteClick={deleteItem} />
-    </center>
+        <TodoItems/>
+      </center>
     </TodoItemsContext.Provider>
   );
 };

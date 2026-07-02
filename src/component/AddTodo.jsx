@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoAddCircleOutline } from "react-icons/io5";
+import { TodoItemsContext } from './store/TodoItemsStore';
 
-const AddTodo = ({onNewItem}) => {
+const AddTodo = () => {
+  const {addNewItem}=useContext(TodoItemsContext)
 const [todoName, setTodoName] = useState("")
 const [dueDate, setDueDate] = useState("")
 function handleNameChange(event){
@@ -11,7 +13,7 @@ function handleDateChange(event){
   setDueDate(event.target.value)
 }
 function handleAddButtonClicked(){
-onNewItem(todoName,dueDate);
+addNewItem(todoName,dueDate);
 setDueDate("")
 setTodoName("")
 }
