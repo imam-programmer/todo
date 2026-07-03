@@ -6,16 +6,33 @@ import TodoItems from "./component/TodoItems";
 import WelcomeMessage from "./component/WelcomeMessage";
 import { TodoItemsContext } from "./component/store/TodoItemsStore";
 
+
+const todoItemsReducer=(currTodoItems,action)=>{
+  let newTodoItems= currTodoItems
+  if(action.type=="NEW_ITEM"){
+  newTodoItems = [
+      ...currTodoItems,
+      { name: action.payload.itemName, dueDate: action.payload.itemDueDate },
+    ];
+    setTodoItems(newTodoItems);
+  }else if(action.type==="DELETE_ITEM"){
+
+  }
+return newTodoItems
+}
 const App = () => {
 
   const [todoItems, setTodoItems] = useState([]);
-  const [newTodoItems, dispatchTodoItems] = useReducer()
+  const [todoItems, dispatchTodoItems] = useReducer(todoItemsReducer,[])
   const addNewItem = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItems,
-      { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newTodoItems);
+    const newItemAction={
+      type:"NEW_ITEM",
+      payload:{
+        itemName,
+        itemDueDate
+      }
+    };
+    dispatchTodoItems(newItemAction)
   };
 
   function deleteItem(todoItemName) {
